@@ -1,70 +1,41 @@
-# Getting Started with Create React App
+# Amortization front-end application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The Amortization front end application is a React app, which is responsible for accepting the loan request, 
+and publishing the amortization schedule, in a tabular format.
 
-## Available Scripts
+The application exposes a form that accepts the following fields as input:
+ - Loan amount (or principal)
+ - Interest rate (expressed as an annual percentage rate or APY)
+ - Term (in years)
+ 
+And returns, as output, the following in a tabular format:
+ - Month
+ - Starting balance
+ - Fixed Payment
+ - Interest Payment
+ - Principal Payment
+ - Ending balance
+ - Total interest
 
-In the project directory, you can run:
+The UI application makes an API request to the Amortization service back-end application, which computes the amortization schedule, and returns the response as a JSON document, back to the UI.
 
-### `yarn start`
+### About the service.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+ - The application was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). 
+ - It uses the [Axios](https://github.com/axios/axios) framework as the HTTP client to make API calls to the Amortization service application.
+ - It uses [ReactTable](https://reactjsexample.com/a-lightweight-and-extendable-datagrid-for-react/), as the light weight data grid to display the amortization schedule.
+ 
+# Getting Started with running the Amortization React application.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### How to run the service.
+Assuming that you have Node v10+, installed on your machine, you could just unzip the folder, and execute either of the following
+commands, from the root of the unzipped folder:
 
-### `yarn test`
+```
+yarn start
+```
+This runs the amortization app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view the application in the browser, and use it. 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Plaese make sure that you have unzipped, and are executing the amortization service application, before submitting any requests.
 
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

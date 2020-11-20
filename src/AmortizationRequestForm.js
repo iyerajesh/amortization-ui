@@ -44,7 +44,14 @@ class AmortizationRequestForm extends React.Component {
                     this.setState({loading: false, amortization: response.data})
                 })
                 .catch((error) => {
-                    alert("Error from the server: " + error);
+                    if (error.response) {
+                        if (error.response.status === 400)
+                            alert("Validation Error returned by the server!: " + error.response.status);
+                    } else if (error.request) {
+                        alert("Could not connect to the amortization service!");
+                    } else {
+                        alert("Unknown error: " + error.response.statusText);
+                    }
                 });
         }
 
@@ -86,9 +93,9 @@ class AmortizationRequestForm extends React.Component {
         }
 
         if (typeof fields["loanTerm"] !== "undefined") {
-            if (!fields["loanTerm"].match(/^[1-9]\d*$/)) {
+            if (!fields["loanTerm"].match(/^(3[00]|[12][0-9]|[1-9])$/)) {
                 formIsValid = false;
-                errors["loanTerm"] = "*Please enter a valid loan term!.";
+                errors["loanTerm"] = "* The loan term should be between 10 and 30 years!.";
             }
         }
 
@@ -106,24 +113,24 @@ class AmortizationRequestForm extends React.Component {
             Header: 'Month',
             accessor: 'month',
         }
-            ,{
+            , {
                 Header: 'Starting Balance',
-                accessor: 'starting-balance' ,
+                accessor: 'starting-balance',
             }
-            ,{
+            , {
                 Header: 'Fixed Payment',
-                accessor: 'fixed-payment' ,
+                accessor: 'fixed-payment',
             }
-            ,{
+            , {
                 Header: 'Principal Payment',
-                accessor: 'principal-payment' ,
+                accessor: 'principal-payment',
             }
 
-            ,{
+            , {
                 Header: 'Interest Payment',
-                accessor: 'interest-payment' ,
+                accessor: 'interest-payment',
             }
-            ,{
+            , {
                 Header: 'Ending Balance',
                 accessor: 'ending-balance',
             },
